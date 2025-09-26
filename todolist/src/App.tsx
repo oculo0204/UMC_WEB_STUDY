@@ -1,4 +1,5 @@
 import './App.css'
+import './dist/script'
 
 function App() {
 
@@ -14,13 +15,11 @@ function App() {
           <section className='ongoing-wrap'>
             <h1>할 일</h1>
             <ul id='todo-list'>
-              <li><p>매튜</p><button>완료</button></li>
             </ul>
           </section>
           <section className='complete-wrap'>
             <h1>완료</h1>
-            <ul id='complete-list'>
-              <li><p>오타니</p><button>삭제</button></li>  
+            <ul id='complete-list'>  
             </ul>  
           </section>
         </div>
