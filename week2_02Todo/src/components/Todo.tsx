@@ -1,5 +1,7 @@
 import React, { useState, type FormEvent } from 'react'
+import TodoForm from './TodoForm';
 import type { TTodo } from '../types/todo';
+import TodoList from './TodoList';
 
 function Todo() {
   const [todos,setTodos] = useState<TTodo[]>([
@@ -33,37 +35,10 @@ function Todo() {
   return (
 <div className='todo-wrap'>
         <header>TODO LIST</header>
-        <form id='todo-form' onSubmit={handleSubmit}>
-          <input id="todo-input" type="text" placeholder='할 일 입력'
-            value={input} onChange={(e):void => {setInput(e.target.value)}}
-            //e는 이벤트 객체 (React.ChangeEvent<HTMLInputElement>).
-            //e.target.value는 사용자가 입력한 현재 문자열 값.
-          />
-          <button type="submit">할 일 추가</button>
-        </form>
+        <TodoForm input={input} setInput={setInput} handleSubmit={handleSubmit}/>
         <div className='show-wrap'>
-          <section className='ongoing-wrap'>
-            <h1>할 일</h1>
-            <ul id='todo-list'>
-              {todos.map((todo) => (
-                <li key={todo.id}>
-                  <span>{todo.text}</span>
-                  <button onClick={():void=>completeTodo(todo)}>완료</button>
-                </li>
-              ))}
-            </ul>
-          </section>
-          <section className='complete-wrap'>
-            <h1>완료</h1>
-            <ul id='complete-list'>
-              {doneTodos.map((todo) => (
-                <li key={todo.id}>
-                  <span>{todo.text}</span>
-                  <button onClick={():void=>deleteTodo(todo)}>삭제</button>
-                </li>
-              ))}  
-            </ul>  
-          </section>
+          <TodoList title='할 일' todos={todos} onclick={completeTodo}/>
+          <TodoList title='완료' todos={doneTodos} onclick={deleteTodo}/>
         </div>
       </div>
   )
