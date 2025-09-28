@@ -1,4 +1,4 @@
-import type { FormEvent, JSX } from "react";
+import type { FormEvent } from "react";
 
 interface TodoFormProps{
     input:string,
@@ -6,7 +6,7 @@ interface TodoFormProps{
     handleSubmit: (e : FormEvent<HTMLFormElement>)=> void;
 }
 
-const TodoForm =({input, setInput, handleSubmit}: TodoFormProps) : JSX.Element => {
+const TodoForm =({input, setInput, handleSubmit}: TodoFormProps) => {
   return (
         <form id='todo-form' onSubmit={handleSubmit}>
           <input id="todo-input" type="text" placeholder='할 일 입력'
