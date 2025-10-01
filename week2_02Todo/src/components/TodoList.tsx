@@ -19,10 +19,10 @@ const TodoList = ({title,todos,onclick, buttonColor, buttonText}:TodoListProps) 
                 <li key={todo.id}  className="h-auto w-40 px-2 mb-2 py-2 flex bg-[#f3f3f3] justify-between items-center rounded"
                     style={{boxShadow: "0 2px 2px rgba(0,0,0,0.2)"}}
                 >
-                  <span className="text-xs flex justify-center items-center font-bold">{todo.text}</span>
+                  <span className="text-xs flex justify-center items-center font-bold max-w-25">{todo.text}</span>
                   <button onClick={():void=>onclick(todo)}
                     style={{ backgroundColor: buttonColor }}
-                    className="w-10 h-6 ml-4 text-white text-xs pd-0 rounded flex items-center justify-center"
+                    className="w-10 h-6 text-white text-xs pd-0 rounded flex items-center justify-center"
                     >{buttonText}</button>
                 </li>
               ))}
