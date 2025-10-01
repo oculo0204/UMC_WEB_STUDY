@@ -12,7 +12,7 @@ interface TodoListProps{
 
 const TodoList = ({title,todos,onclick, buttonColor, buttonText}:TodoListProps) => { 
   return (
-    <section className='w-1/2'>
+    <section className='w-1/2 flex flex-col items-center'>
             <h1 className="font-bold flex justify-center text-xl mb-4">{title}</h1>
             <ul id='todo-list' className="justify-between">
               {todos.map((todo) => (
