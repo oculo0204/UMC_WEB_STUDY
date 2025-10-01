@@ -18,12 +18,12 @@ function Todo() {
     }
   }
   return (
-<div className='todo-wrap'>
-        <header>TODO LIST</header>
+<div className='h-auto bg-white w-100 p-8 rounded-2xl'>
+        <header className='text-2xl font-bold text-center mb-6 mt-4'>TODO LIST</header>
         <TodoForm input={input} setInput={setInput} handleSubmit={handleSubmit}/>
-        <div className='show-wrap'>
-          <TodoList title='할 일' todos={context.todos} onclick={context.completeTodo}/>
-          <TodoList title='완료' todos={context.doneTodos} onclick={context.deleteTodo}/>
+        <div className='flex justify-between pd-5 mt-5'>
+          <TodoList title='할 일' todos={context.todos} onclick={context.completeTodo} buttonColor='#0d7729' buttonText='완료'/>
+          <TodoList title='완료' todos={context.doneTodos} onclick={context.deleteTodo} buttonColor='#d40f0f' buttonText='삭제'/>
         </div>
       </div>
   )

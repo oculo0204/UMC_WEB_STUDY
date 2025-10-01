@@ -4,19 +4,26 @@ import type { TTodo } from "../types/todo";
 interface TodoListProps{
     title: string;
     todos: TTodo[];
-    onclick: (todo:TTodo)=>void
+    onclick: (todo:TTodo)=>void;
+    buttonColor: string;
+    buttonText: string;
 }
 
 
-const TodoList = ({title,todos,onclick}:TodoListProps) => { 
+const TodoList = ({title,todos,onclick, buttonColor, buttonText}:TodoListProps) => { 
   return (
-    <section className='ongoing-wrap'>
-            <h1>{title}</h1>
-            <ul id='todo-list'>
+    <section className='w-1/2'>
+            <h1 className="font-bold flex justify-center text-xl mb-4">{title}</h1>
+            <ul id='todo-list' className="justify-between">
               {todos.map((todo) => (
-                <li key={todo.id}>
-                  <span>{todo.text}</span>
-                  <button onClick={():void=>onclick(todo)}>{title=='할 일'?'완료': '삭제'}</button>
+                <li key={todo.id}  className="h-auto w-40 px-2 mb-2 py-2 flex bg-[#f3f3f3] justify-between items-center rounded"
+                    style={{boxShadow: "0 2px 2px rgba(0,0,0,0.2)"}}
+                >
+                  <span className="text-xs flex justify-center items-center font-bold">{todo.text}</span>
+                  <button onClick={():void=>onclick(todo)}
+                    style={{ backgroundColor: buttonColor }}
+                    className="w-10 h-6 ml-4 text-white text-xs pd-0 rounded flex items-center justify-center"
+                    >{buttonText}</button>
                 </li>
               ))}
             </ul>
